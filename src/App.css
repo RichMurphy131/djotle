@@ -7,6 +7,7 @@
   pointer-events: none;
 }
 .App-body{
+
   background: linear-gradient(135deg, #232633, #2f1345);
   background-attachment: fixed;
   color: white;
