@@ -6,6 +6,18 @@
   height: 40vmin;
   pointer-events: none;
 }
+.App-body{
+  background: linear-gradient(135deg, #000428, #004e92);
+  background-attachment: fixed;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
 .App-header {
   background: linear-gradient(135deg, #000428, #004e92);
   background-attachment: fixed;
