@@ -6,7 +6,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>
-          Edit <code>src/App.js</code> and save to reload, actually sharkey is gay.
+          Edit <code>src/App.js</code> Djotle currently under construction.
         </p>
         <img src="https://drive.google.com/drive/folders/1FuySvCv2TutFcL00UZpa26zeiS2Siwk1\logo" className="App-logo" alt="logo" />
         <a
