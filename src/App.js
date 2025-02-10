@@ -5,10 +5,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload rich is gay.
+          Edit <code>src/App.js</code> and save to reload, actually sharkey is gay.
         </p>
+        <img src={logo} className="App-logo" alt="logo" />
         <a
           className="App-link"
           href="https://reactjs.org"
