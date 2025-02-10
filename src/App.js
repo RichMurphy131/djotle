@@ -7,7 +7,7 @@ function App() {
         <p>
            Djotle currently under construction.
         </p>
-        <img src="https://drive.google.com/file/d/165nIBU0P3DRmcghiYXNfOwTw4ehLTopP/Logo.jpg" className="App-logo" alt="logo" />
+        <img src= "https://drive.google.com/thumbnail?id=165nIBU0P3DRmcghiYXNfOwTw4ehLTopP" className="App-logo" alt="logo" />
       </header>
     </div>
   );
