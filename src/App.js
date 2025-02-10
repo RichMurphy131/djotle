@@ -8,7 +8,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> Djotle currently under construction.
         </p>
-        <img src="https://drive.google.com/drive/folders/1FuySvCv2TutFcL00UZpa26zeiS2Siwk1\logo" className="App-logo" alt="logo" />
+        <img src="https://drive.google.com/drive/folders/1FuySvCv2TutFcL00UZpa26zeiS2Siwk1\Logo.jpg" className="App-logo" alt="logo" />
         <a
           className="App-link"
           href="https://reactjs.org"
