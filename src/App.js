@@ -37,7 +37,7 @@ export default function DiscogsSearch() {
 
     return (
         <div className="p-4 max-w-2xl mx-auto">
-            <h1 className="text-2xl font-bold mb-4">Discogs Album Search</h1>
+            <h1 className="text-2xl font-bold mb-4">Mark is a Wizard</h1>
             <div className="flex gap-2 mb-4">
                 <input
                     type="text"
