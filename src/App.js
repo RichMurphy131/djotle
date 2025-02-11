@@ -3,8 +3,11 @@ import { useState } from "react";
 import axios from "axios";
 
 const DISC_API_URL = "https://api.discogs.com/database/search";
-const API_KEY = "HwkDluzNISgmnjbtOtoG";
-const API_SECRET = "jFxEWKJnXCXenPOvVprnAupIDUqqbeCL";
+const DISC_API_KEY = "HwkDluzNISgmnjbtOtoG";
+const DISC_API_SECRET = "jFxEWKJnXCXenPOvVprnAupIDUqqbeCL";
+const SPOT_API_KEY = "3ab197aaf7de4d1192fd9a9f18ab5afb";
+const SPOT_API_SECRET = "849ca8c0f10644a5bb0dee2ca83fea68";
+
 
 export default function DiscogsSearch() {
     const [query, setQuery] = useState("");
@@ -24,8 +27,8 @@ export default function DiscogsSearch() {
                 params: {
                     q: query,
                     type: "release",
-                    key: API_KEY,
-                    secret: API_SECRET,
+                    key: DISC_API_KEY,
+                    secret: DISC_API_SECRET,
                 },
             });
             setResults(response.data.results);
