@@ -1,43 +1,23 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { getSecrets } from "./secrets.js";
+import "dotenv";
 
 const DISC_API_URL = "https://api.discogs.com/database/search";
-
-/*
-    Retrieving 4 secrets from AWS Secret Manager
- */
-(async () => {
-    try {
-        const secretNames = ["DISC_API_KEY", "DISC_API_SECRET", "SPOT_API_KEY", "SPOT_API_SECRET"];
-        const secrets = await getSecrets(secretNames);
-
-        // Storing each secret in its respective variable
-        const DISC_API_KEY = secrets["DISC_API_KEY"];
-        const DISC_API_SECRET = secrets["DISC_API_SECRET"];
-        const SPOT_API_KEY = secrets["SPOT_API_KEY"];
-        const SPOT_API_SECRET = secrets["SPOT_API_SECRET"];
-
-    } catch (error) {
-        console.error("Failed to retrieve secrets:", error);
-    }
-})();
+const DISC_API_KEY = process.env.DISC_API_KEY;
+const DISC_API_SECRET = process.env.DISC_API_SECRET;
 
 
 export default function DiscogsSearch() {
     const [query, setQuery] = useState("");
     const [results, setResults] = useState([]);
-    const [loading, setLoading] = useState(false);
 
+    let loading = false;
 
-    /*
-        Async function that searches Discogs API for a query string and returns a set of Albums
-
-     */
+    // Async function to search Discogs API
     const searchAlbums = async () => {
         if (!query) return;
-        setLoading(true);
+        loading = true;
         try {
             const response = await axios.get(DISC_API_URL, {
                 params: {
@@ -51,7 +31,7 @@ export default function DiscogsSearch() {
         } catch (error) {
             console.error("Error fetching data:", error);
         }
-        setLoading(false);
+        loading = false;
     };
 
     return (
@@ -66,10 +46,10 @@ export default function DiscogsSearch() {
                     className="border p-2 flex-1 rounded"
                 />
                 <button
-                    onClick={searchAlbums}
+                    onClick={searchAlbums} // No need to pass parameters manually
                     className="bg-blue-500 text-white px-4 py-2 rounded"
                 >
-                    Search
+                    "Search"
                 </button>
             </div>
             {loading && <p>Loading...</p>}
