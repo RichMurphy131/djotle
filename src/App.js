@@ -1,12 +1,28 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import { useState } from "react";
 import axios from "axios";
+import { getSecrets } from "./secrets.js";
 
 const DISC_API_URL = "https://api.discogs.com/database/search";
-const DISC_API_KEY = "HwkDluzNISgmnjbtOtoG";
-const DISC_API_SECRET = "jFxEWKJnXCXenPOvVprnAupIDUqqbeCL";
-const SPOT_API_KEY = "3ab197aaf7de4d1192fd9a9f18ab5afb";
-const SPOT_API_SECRET = "849ca8c0f10644a5bb0dee2ca83fea68";
+
+/*
+    Retrieving 4 secrets from AWS Secret Manager
+ */
+(async () => {
+    try {
+        const secretNames = ["DISC_API_KEY", "DISC_API_SECRET", "SPOT_API_KEY", "SPOT_API_SECRET"];
+        const secrets = await getSecrets(secretNames);
+
+        // Storing each secret in its respective variable
+        const DISC_API_KEY = secrets["DISC_API_KEY"];
+        const DISC_API_SECRET = secrets["DISC_API_SECRET"];
+        const SPOT_API_KEY = secrets["SPOT_API_KEY"];
+        const SPOT_API_SECRET = secrets["SPOT_API_SECRET"];
+
+    } catch (error) {
+        console.error("Failed to retrieve secrets:", error);
+    }
+})();
 
 
 export default function DiscogsSearch() {
