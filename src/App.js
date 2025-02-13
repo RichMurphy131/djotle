@@ -1,23 +1,31 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "dotenv";
 
 const DISC_API_URL = "https://api.discogs.com/database/search";
-const DISC_API_KEY = process.env.DISC_API_KEY;
-const DISC_API_SECRET = process.env.DISC_API_SECRET;
+const DISC_API_KEY = process.env.REACT_APP_DISC_API_KEY;
+const DISC_API_SECRET = process.env.REACT_APP_DISC_API_SECRET;
+
+
+
 
 
 export default function DiscogsSearch() {
     const [query, setQuery] = useState("");
     const [results, setResults] = useState([]);
+    const [loading, setLoading] = useState(false);
 
-    let loading = false;
+
+    useEffect(() => {
+        console.log("DISC_API_KEY:", process.env.REACT_APP_DISC_API_KEY);
+        console.log("DISC_API_SECRET:", process.env.REACT_APP_DISC_API_SECRET);
+    }, []);
 
     // Async function to search Discogs API
     const searchAlbums = async () => {
         if (!query) return;
-        loading = true;
+        setLoading(true);  // Change state
+        console.log("key: " + DISC_API_KEY + "\nSecret: " + DISC_API_SECRET);
         try {
             const response = await axios.get(DISC_API_URL, {
                 params: {
@@ -31,7 +39,7 @@ export default function DiscogsSearch() {
         } catch (error) {
             console.error("Error fetching data:", error);
         }
-        loading = false;
+        setLoading(false);
     };
 
     return (
